@@ -1,0 +1,43 @@
+- name: create xenocara custom configuration directory
+  file: 
+      path: "{{ xenocara_path }}"
+      state: directory
+      owner: root
+      group: wheel
+      mode: 0555
+
+- name: configure xenocara frame buffer driver
+  file:
+      path: "{{ xenocara_path }}/fb.conf"
+      state: file
+      owner: root
+      group: wheel
+      mode: 0444
+      src: files/fb.conf
+
+- name: configure xenocara intel driver
+  file:
+      path: "{{ xenocara_path }}/intel.conf"
+      state: file
+      owner: root
+      group: wheel
+      mode: 0444
+      src: files/intel.conf
+
+- name: configure xenocara monitor
+  file:
+      path: "{{ xenocara_path }}/monitor.conf"
+      state: file
+      owner: root
+      group: wheel
+      mode: 0444
+      src: files/monitor.conf
+
+- name: configure xenocara screen
+  file:
+      path: "{{ xenocara_path }}/screen.conf"
+      state: file
+      owner: root
+      group: wheel
+      mode: 0444
+      src: files/screen.conf
