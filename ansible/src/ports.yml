@@ -1,0 +1,4 @@
+- name: get official openbsd ports tree
+  shell: "cvs {{ cvs_opts }} -d{{ repository }} checkout -dP ports"
+  args:
+    chdir: "/usr"

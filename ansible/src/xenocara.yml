@@ -1,0 +1,4 @@
+- name: get official openbsd xenocara source code
+  shell: "cvs {{ cvs_opts }} -d{{ repository }} checkout -dP xenocara"
+  args:
+    chdir: "/home"

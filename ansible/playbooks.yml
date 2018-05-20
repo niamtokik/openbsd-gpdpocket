@@ -1,0 +1,23 @@
+######################################################################
+# GPD Pocket should use current, we'll probably need sources
+######################################################################
+- name: get sources
+  hosts: '*'
+  vars:
+    repository: anoncvs@anoncvs.eu.openbsd.org:/cvs
+    cvs_opts: -qz3
+    release: current
+  tasks:
+    - include: src/src.yml
+    - include: src/xenocara.yml
+    - include: src/ports.yml
+
+######################################################################
+# GPD Pocket needs custom xenocara configuration files
+######################################################################
+- name: configure xenocara
+  hosts: '*'
+  vars:
+    xenocara_path: "/etc/X11/xorg.conf.d"
+  tasks:
+    - include: xenocara/xenocara.yml

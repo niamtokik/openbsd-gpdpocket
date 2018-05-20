@@ -1,0 +1,4 @@
+- name: get official openbsd source code
+  shell: "cvs {{ cvs_opts }} -d{{ repository }} checkout -dP src"
+  args:
+    chdir: "/usr"
